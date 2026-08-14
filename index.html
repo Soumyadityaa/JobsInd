@@ -31,7 +31,7 @@
     html, body {
       width: 100%;
       max-width: 100%;
-      overflow-x: hidden; /* KEY FIX: Stops horizontal page leakage */
+      overflow-x: hidden;
       background-color: var(--bg-light);
       color: var(--text-main);
       line-height: 1.5;
@@ -141,7 +141,7 @@
       border-color: var(--secondary);
     }
 
-    /* Content Area & Table Container */
+    /* Content Area & Desktop Table */
     .card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -158,20 +158,14 @@
       font-weight: 600;
     }
 
-    /* KEY FIX: Strict Table Scroll Container */
     .table-responsive {
       width: 100%;
-      max-width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      display: block;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      min-width: 600px; /* Table stays structured and scrolls isolated inside .table-responsive */
     }
 
     th, td {
@@ -279,29 +273,68 @@
       margin-top: 40px;
     }
 
-    /* Mobile Responsive Breakpoint */
-    @media (max-width: 768px) {
+    /* ====================================================== */
+    /* MOBILE TABLE TO CARD CONVERSION (Below 650px Width)   */
+    /* ====================================================== */
+    @media (max-width: 650px) {
       .container {
         grid-template-columns: 1fr;
         margin: 10px auto;
         padding: 0 10px;
       }
 
-      header h1 {
-        font-size: 1.4rem;
+      header h1 { font-size: 1.4rem; }
+      header p { font-size: 0.8rem; }
+
+      .filter-card { flex-direction: column; }
+      .filter-card input, .filter-card select { width: 100%; }
+
+      /* Hide traditional header row on mobile */
+      #recruitmentTable thead {
+        display: none;
       }
 
-      header p {
-        font-size: 0.8rem;
-      }
-
-      .filter-card {
-        flex-direction: column;
-      }
-
-      .filter-card input,
-      .filter-card select {
+      /* Transform table elements into card blocks */
+      #recruitmentTable, 
+      #recruitmentTable tbody, 
+      #recruitmentTable tr, 
+      #recruitmentTable td {
+        display: block;
         width: 100%;
+      }
+
+      #recruitmentTable tr {
+        margin: 12px 10px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      }
+
+      #recruitmentTable td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        border-bottom: 1px dashed var(--border-color);
+        text-align: right;
+        font-size: 0.88rem;
+      }
+
+      #recruitmentTable td:last-child {
+        border-bottom: none;
+        background: #f9fbfd;
+      }
+
+      /* Dynamically display field labels on the left side of cards */
+      #recruitmentTable td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-align: left;
+        padding-right: 10px;
       }
     }
   </style>
@@ -369,36 +402,36 @@
             </thead>
             <tbody>
               <tr data-category="Banking">
-                <td><strong>SBI</strong> <span class="badge badge-urgent">Urgent</span></td>
-                <td>Probationary Officer (PO)</td>
-                <td>Degree</td>
-                <td>2,000</td>
-                <td>28-Aug-2026</td>
-                <td><a href="#" class="btn-action">Apply Online</a></td>
+                <td data-label="Organization"><strong>SBI</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Probationary Officer (PO)</td>
+                <td data-label="Qualification">Degree</td>
+                <td data-label="Vacancies">2,000</td>
+                <td data-label="Last Date">28-Aug-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
               </tr>
               <tr data-category="Railways">
-                <td><strong>RRB</strong> <span class="badge badge-new">New</span></td>
-                <td>Assistant Loco Pilot</td>
-                <td>10th / ITI / Diploma</td>
-                <td>5,696</td>
-                <td>05-Sep-2026</td>
-                <td><a href="#" class="btn-action">View Details</a></td>
+                <td data-label="Organization"><strong>RRB</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Assistant Loco Pilot</td>
+                <td data-label="Qualification">10th / ITI / Diploma</td>
+                <td data-label="Vacancies">5,696</td>
+                <td data-label="Last Date">05-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
               </tr>
               <tr data-category="SSC">
-                <td><strong>SSC</strong> <span class="badge badge-new">New</span></td>
-                <td>Combined Graduate Level (CGL)</td>
-                <td>Bachelor's Degree</td>
-                <td>17,727</td>
-                <td>15-Sep-2026</td>
-                <td><a href="#" class="btn-action">Apply Online</a></td>
+                <td data-label="Organization"><strong>SSC</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Combined Graduate Level (CGL)</td>
+                <td data-label="Qualification">Bachelor's Degree</td>
+                <td data-label="Vacancies">17,727</td>
+                <td data-label="Last Date">15-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
               </tr>
               <tr data-category="Defence">
-                <td><strong>Indian Army</strong> <span class="badge badge-urgent">Urgent</span></td>
-                <td>Agniveer General Duty</td>
-                <td>10th Pass</td>
-                <td>25,000+</td>
-                <td>20-Sep-2026</td>
-                <td><a href="#" class="btn-action">View Details</a></td>
+                <td data-label="Organization"><strong>Indian Army</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Agniveer General Duty</td>
+                <td data-label="Qualification">10th Pass</td>
+                <td data-label="Vacancies">25,000+</td>
+                <td data-label="Last Date">20-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
               </tr>
             </tbody>
           </table>
