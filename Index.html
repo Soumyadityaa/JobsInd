@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobsInd - India's Trusted Job Portal | Latest Jobs & Notifications</title>
+  <style>
+    /* CSS Variables for Global Styling */
+    :root {
+      --primary: #0a3663;
+      --primary-hover: #072748;
+      --secondary: #0277bd;
+      --accent: #c62828;
+      --bg-light: #f4f7f6;
+      --surface: #ffffff;
+      --text-main: #212121;
+      --text-muted: #616161;
+      --border-color: #e0e0e0;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --radius: 6px;
+    }
+
+    /* Reset & Prevent Page-Level Horizontal Overflow */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Top Header */
+    header {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 24px 15px;
+      text-align: center;
+      border-bottom: 4px solid var(--secondary);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+
+    /* Navigation Bar */
+    .nav-wrapper {
+      width: 100%;
+      background: var(--secondary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+
+    .nav-links li a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Responsive Main Container */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 2.8fr 1fr;
+      gap: 20px;
+    }
+
+    /* Filter & Search Bar */
+    .filter-card {
+      background: var(--surface);
+      padding: 15px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-card input,
+    .filter-card select {
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      outline: none;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .filter-card input:focus,
+    .filter-card select:focus {
+      border-color: var(--secondary);
+    }
+
+    /* Card Layouts */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 14px 18px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* Table Styles */
+    .table-responsive {
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #f8f9fa;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr:hover {
+      background: #f1f5f9;
+    }
+
+    /* Badges & Buttons */
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-left: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-urgent { background-color: var(--accent); }
+    .badge-new { background-color: #2e7d32; }
+    .badge-wfh { background-color: #6a1b9a; }
+    .badge-private { background-color: #e65100; }
+
+    .btn-action {
+      background: var(--secondary);
+      color: #ffffff;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--primary);
+    }
+
+    /* Sidebar Widgets */
+    .sidebar-widget {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .widget-header {
+      background: #333333;
+      color: #ffffff;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .widget-list {
+      list-style: none;
+    }
+
+    .widget-list li {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .widget-list li:last-child {
+      border-bottom: none;
+    }
+
+    .widget-list a {
+      display: block;
+      padding: 10px 16px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .widget-list a:hover {
+      background: #f0f4f8;
+      color: var(--secondary);
+    }
+
+    /* About Section Styles */
+    .about-section h3 {
+      color: var(--primary);
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .about-section p {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      padding: 15px;
+      border-left: 4px solid var(--secondary);
+      border-radius: 4px;
+    }
+
+    .info-box h4 {
+      color: var(--primary);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .feature-item {
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    .feature-item h5 {
+      color: var(--secondary);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+      color: var(--text-muted);
+    }
+
+    /* Contact Box */
+    .contact-card {
+      background: #eef6fc;
+      border: 1px solid #b3e5fc;
+      border-radius: var(--radius);
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .contact-card p {
+      margin-bottom: 4px;
+    }
+
+    .contact-card a {
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: #1c1c1c;
+      color: #a0a0a0;
+      padding: 30px 15px 15px 15px;
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-col p {
+      line-height: 1.6;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul a {
+      color: #a0a0a0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile Table to Card Conversion (Below 650px) */
+    @media (max-width: 650px) {
+      .container {
+        grid-template-columns: 1fr;
+        margin: 10px auto;
+        padding: 0 10px;
+      }
+
+      header h1 { font-size: 1.5rem; }
+      header p { font-size: 0.85rem; }
+
+      .filter-card { flex-direction: column; }
+      .filter-card input, .filter-card select { width: 100%; }
+
+      .grid-2col {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Hide traditional header row on mobile */
+      #recruitmentTable thead {
+        display: none;
+      }
+
+      /* Transform table elements into card blocks */
+      #recruitmentTable, 
+      #recruitmentTable tbody, 
+      #recruitmentTable tr, 
+      #recruitmentTable td {
+        display: block;
+        width: 100%;
+      }
+
+      #recruitmentTable tr {
+        margin: 12px 0;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      }
+
+      #recruitmentTable td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        border-bottom: 1px dashed var(--border-color);
+        text-align: right;
+        font-size: 0.88rem;
+      }
+
+      #recruitmentTable td:last-child {
+        border-bottom: none;
+        background: #f9fbfd;
+      }
+
+      /* Dynamically display field labels on the left side of cards */
+      #recruitmentTable td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-align: left;
+        padding-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>JobsInd Alert Portal</h1>
+    <p>India's Trusted Job Portal for Private Jobs, Government Notifications, Work From Home & Internships</p>
+  </header>
+
+  <!-- Navigation Bar -->
+  <div class="nav-wrapper">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#jobs-section">Government Jobs</a></li>
+        <li><a href="#jobs-section">Private Jobs</a></li>
+        <li><a href="#jobs-section">Work From Home</a></li>
+        <li><a href="#jobs-section">Internships</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Grid Layout -->
+  <div class="container">
+
+    <!-- Primary Content Area -->
+    <main>
+      <!-- Search and Filter Tools -->
+      <div class="filter-card">
+        <input 
+          type="text" 
+          id="searchInput" 
+          aria-label="Search Job Listings"
+          placeholder="Search by Post, Organization, or Qualification..." 
+          oninput="applyFilter()"
+        />
+        <select id="categorySelect" aria-label="Filter by Category" onchange="applyFilter()">
+          <option value="">All Categories</option>
+          <option value="Banking">Banking</option>
+          <option value="Railways">Railways</option>
+          <option value="SSC">SSC</option>
+          <option value="Defence">Defence</option>
+          <option value="IT & Private">IT & Private</option>
+          <option value="Work From Home">Work From Home</option>
+          <option value="Internship">Internship</option>
+        </select>
+      </div>
+
+      <!-- Main Job Table -->
+      <div class="card" id="jobs-section">
+        <div class="card-header">Latest Active Job Notifications</div>
+        <div class="table-responsive">
+          <table id="recruitmentTable">
+            <thead>
+              <tr>
+                <th>Organization</th>
+                <th>Post Name</th>
+                <th>Qualification</th>
+                <th>Vacancies</th>
+                <th>Last Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-category="Banking">
+                <td data-label="Organization"><strong>SBI</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Probationary Officer (PO)</td>
+                <td data-label="Qualification">Degree</td>
+                <td data-label="Vacancies">2,000</td>
+                <td data-label="Last Date">28-Aug-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Railways">
+                <td data-label="Organization"><strong>RRB</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Assistant Loco Pilot</td>
+                <td data-label="Qualification">10th / ITI / Diploma</td>
+                <td data-label="Vacancies">5,696</td>
+                <td data-label="Last Date">05-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
+              </tr>
+              <tr data-category="IT & Private">
+                <td data-label="Organization"><strong>TCS</strong> <span class="badge badge-private">Private</span></td>
+                <td data-label="Post Name">Software Developer (Fresher)</td>
+                <td data-label="Qualification">B.E / B.Tech / MCA</td>
+                <td data-label="Vacancies">500+</td>
+                <td data-label="Last Date">10-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="SSC">
+                <td data-label="Organization"><strong>SSC</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Combined Graduate Level (CGL)</td>
+                <td data-label="Qualification">Bachelor's Degree</td>
+                <td data-label="Vacancies">17,727</td>
+                <td data-label="Last Date">15-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Work From Home">
+                <td data-label="Organization"><strong>TechCorp</strong> <span class="badge badge-wfh">WFH</span></td>
+                <td data-label="Post Name">Customer Support Executive</td>
+                <td data-label="Qualification">12th Pass / Any Graduate</td>
+                <td data-label="Vacancies">150</td>
+                <td data-label="Last Date">18-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Defence">
+                <td data-label="Organization"><strong>Indian Army</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Agniveer General Duty</td>
+                <td data-label="Qualification">10th Pass</td>
+                <td data-label="Vacancies">25,000+</td>
+                <td data-label="Last Date">20-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
+              </tr>
+              <tr data-category="Internship">
+                <td data-label="Organization"><strong>InfoTech Labs</strong> <span class="badge badge-new">Internship</span></td>
+                <td data-label="Post Name">Web Development Intern</td>
+                <td data-label="Qualification">Pursuing Graduation</td>
+                <td data-label="Vacancies">25</td>
+                <td data-label="Last Date">25-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <!-- Empty State Row -->
+              <tr id="noResultsRow" style="display: none;">
+                <td colspan="6" style="text-align: center; padding: 20px; color: var(--text-muted);">
+                  No job notifications match your search criteria.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- About JobsInd Section -->
+      <div class="card about-section" id="about">
+        <div class="card-header">About JobsInd - India's Trusted Job Portal</div>
+        <div class="card-body">
+          <p>
+            Welcome to <strong>JobsInd</strong>, your trusted destination for finding the latest private jobs, government jobs, work-from-home jobs, internships, and career opportunities across India. Our mission is to connect job seekers with reliable employers through a secure, fast, and easy-to-use platform.
+          </p>
+          <p>
+            Whether you are a fresher starting your career, an experienced professional looking for better opportunities, or an employer searching for qualified talent, JobsInd is committed to making the hiring process simple and effective.
+          </p>
+
+          <div class="grid-2col">
+            <div class="info-box">
+              <h4>Our Mission</h4>
+              <p>To bridge the gap between employers and job seekers by providing verified job listings, career guidance, and a seamless recruitment experience. We strive to help millions of Indians build successful careers by making employment opportunities easily accessible.</p>
+            </div>
+            <div class="info-box">
+              <h4>Our Vision</h4>
+              <p>To become one of India's leading job portals by delivering trusted job information, empowering career growth, and helping organizations recruit the right candidates efficiently.</p>
+            </div>
+          </div>
+
+          <h3>Why Choose JobsInd?</h3>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h5>Verified Opportunities</h5>
+              <p>We publish reliable and up-to-date job openings from trusted employers and partners.</p>
+            </div>
+            <div class="feature-item">
+              <h5>Easy Job Search</h5>
+              <p>Search by location, qualification, industry, experience level, and job type seamlessly.</p>
+            </div>
+            <div class="feature-item">
+              <h5>Career Support</h5>
+              <p>Gain access to valuable resume tips, interview guidance, and job search strategies.</p>
+            </div>
+            <div class="feature-item">
+              <h5>Nationwide Coverage</h5>
+              <p>Opportunities across IT, Banking, Healthcare, Education, Engineering, Sales, and Government sectors.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 20px;">Our Commitment</h3>
+          <p>
+            We are committed to maintaining transparency, accuracy, and quality in every job listing published on our platform. While we make every effort to verify the information, applicants are encouraged to confirm job details directly with employers before applying.
+          </p>
+
+          <div class="contact-card" id="contact">
+            <h4>Contact Us</h4>
+            <p>We value your feedback, suggestions, and business inquiries regarding job postings, partnerships, advertising, or general support.</p>
+            <p><strong>Email:</strong> <a href="mailto:ershrikanta@gmail.com">ershrikanta@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+<!-- Sidebar Section -->
+    <aside>
+      <!-- What We Offer Widget -->
+      <div class="sidebar-widget">
+        <div class="widget-header">What We Offer</div>
+        <ul class="widget-list">
+          <li><a href="#jobs-section">Latest Private Jobs</a></li>
+          <li><a href="#jobs-section">Government Notifications</a></li>
+          <li><a href="#jobs-section">Work From Home Jobs</a></li>
+          <li><a href="#jobs-section">Fresher Jobs</a></li>
+          <li><a href="#jobs-section">Experienced Jobs</a></li>
+          <li><a href="#jobs-section">Internship Opportunities</a></li>
+          <li><a href="#jobs-section">Part-Time & Full-Time Jobs</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Updates Widget -->
+      <div class="sidebar-widget">
+        <div class="widget-header">Quick Updates</div>
+        <ul class="widget-list">
+          <li><a href="#">Latest Exam Results</a></li>
+          <li><a href="#">Download Admit Cards</a></li>
+          <li><a href="#">Official Answer Keys</a></li>
+          <li><a href="#">Syllabus & Exam Pattern</a></li>
+          <li><a href="#">Previous Year Papers</a></li>
+        </ul>
+      </div>
+
+      <!-- Jobs by Qualification Widget -->
+      <div class="sidebar-widget">
+        <div class="widget-header">Jobs by Qualification</div>
+        <ul class="widget-list">
+          <li><a href="#">10th / 12th Pass Jobs</a></li>
+          <li><a href="#">ITI & Diploma Jobs</a></li>
+          <li><a href="#">Engineering (B.E/B.Tech)</a></li>
+          <li><a href="#">Graduate & Post Graduate</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>JobsInd Alert Portal</h4>
+        <p>JobsInd is a trusted job portal dedicated to helping candidates find government jobs, private roles, internships, and work-from-home careers across India.</p>
+        <p style="margin-top: 10px;"><strong>Contact:</strong> ershrikanta@gmail.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Job Categories</h4>
+        <ul>
+          <li><a href="#jobs-section">Government Jobs</a></li>
+          <li><a href="#jobs-section">Private Sector</a></li>
+          <li><a href="#jobs-section">Work From Home</a></li>
+          <li><a href="#jobs-section">Internships</a></li>
+          <li><a href="#jobs-section">Banking & SSC</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 JobsInd Alert Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Filter JavaScript -->
+  <script>
+    function applyFilter() {
+      const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
+      const selectedCategory = document.getElementById('categorySelect').value;
+      const rows = document.querySelectorAll('#recruitmentTable tbody tr:not(#noResultsRow)');
+      const noResultsRow = document.getElementById('noResultsRow');
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        // Exclude button text from search match logic
+        const rowText = Array.from(row.querySelectorAll('td:not(:last-child)'))
+          .map(td => td.textContent)
+          .join(' ')
+          .toLowerCase();
+
+        const rowCategory = row.getAttribute('data-category');
+
+        const matchesSearch = rowText.includes(searchVal);
+        const matchesCategory = selectedCategory === "" || rowCategory === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          row.style.display = "";
+          visibleCount++;
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      // Show or hide the empty state row
+      if (noResultsRow) {
+        noResultsRow.style.display = visibleCount === 0 ? "table-row" : "none";
+      }
+    }
+  </script>
+</body>
+</html>
