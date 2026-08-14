@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndGovtJobs Alert - Latest Recruitment Notifications</title>
+  <style>
+    :root {
+      --primary-color: #0d47a1;
+      --secondary-color: #1976d2;
+      --accent-color: #d32f2f;
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --border-color: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header Section */
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: var(--secondary-color);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 8px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    /* Layout Grid */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Filter & Search Bar */
+    .search-box {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input, .search-box select {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      flex: 1;
+      min-width: 180px;
+      font-size: 0.95rem;
+    }
+
+    /* Main Table Section */
+    .section-title {
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      font-size: 1.1rem;
+      border-radius: 6px 6px 0 0;
+      font-weight: 600;
+    }
+
+    .job-table-container {
+      background: var(--card-bg);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      color: #555;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 3px;
+      font-weight: 600;
+      color: white;
+      margin-left: 5px;
+    }
+
+    .badge-urgent { background: var(--accent-color); }
+    .badge-govt { background: #2e7d32; }
+
+    .btn-apply {
+      background: var(--secondary-color);
+      color: white;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      display: inline-block;
+    }
+
+    .btn-apply:hover {
+      background: var(--primary-color);
+    }
+
+    /* Sidebar Widgets */
+    .widget {
+      background: var(--card-bg);
+      border-radius: 6px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .widget-title {
+      background: #333;
+      color: white;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .widget-list {
+      list-style: none;
+    }
+
+    .widget-list li {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .widget-list a {
+      display: block;
+      padding: 10px 15px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .widget-list a:hover {
+      background: #eef2f7;
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>JobsInd</h1>
+    <h3>IndGovtJobs Alert</h3>
+    <p>Latest Government Jobs, Banking, Railway, SSC, Defence & State PSC Notifications</p>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Bank Jobs</a>
+    <a href="#">Railway Jobs</a>
+    <a href="#">SSC Jobs</a>
+    <a href="#">UPSC</a>
+    <a href="#">Defence Jobs</a>
+    <a href="#">Admit Card</a>
+    <a href="#">Results</a>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Left Column: Main Content -->
+    <main>
+      <!-- Real-time Filter Bar -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by job title, board, or qualification..." onkeyup="filterJobs()" />
+        <select id="categorySelect" onchange="filterJobs()">
+          <option value="">All Categories</option>
+          <option value="Banking">Banking</option>
+          <option value="Railways">Railways</option>
+          <option value="SSC">SSC</option>
+          <option value="Defence">Defence</option>
+        </select>
+      </div>
+
+      <!-- Job Recruitment Table -->
+      <div class="section-title">Latest Government Job Vacancies 2026</div>
+      <div class="job-table-container">
+        <table id="jobsTable">
+          <thead>
+            <tr>
+              <th>Board / Org</th>
+              <th>Post Name</th>
+              <th>Qualification</th>
+              <th>Vacancies</th>
+              <th>Last Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-category="Banking">
+              <td><strong>SBI</strong> <span class="badge badge-urgent">Urgent</span></td>
+              <td>Probationary Officer (PO)</td>
+              <td>Any Degree</td>
+              <td>2,000</td>
+              <td>28-Aug-2026</td>
+              <td><a href="#" class="btn-apply">Apply Online</a></td>
+            </tr>
+            <tr data-category="Railways">
+              <td><strong>RRB</strong> <span class="badge badge-govt">Govt</span></td>
+              <td>Assistant Loco Pilot (ALP)</td>
+              <td>10th / ITI / Diploma</td>
+              <td>5,696</td>
+              <td>05-Sep-2026</td>
+              <td><a href="#" class="btn-apply">Details</a></td>
+            </tr>
+            <tr data-category="SSC">
+              <td><strong>SSC</strong> <span class="badge badge-govt">Govt</span></td>
+              <td>Combined Graduate Level (CGL)</td>
+              <td>Bachelor's Degree</td>
+              <td>17,727</td>
+              <td>15-Sep-2026</td>
+              <td><a href="#" class="btn-apply">Apply Online</a></td>
+            </tr>
+            <tr data-category="Defence">
+              <td><strong>Indian Army</strong> <span class="badge badge-urgent">New</span></td>
+              <td>Agniveer General Duty</td>
+              <td>10th Pass</td>
+              <td>25,000+</td>
+              <td>20-Sep-2026</td>
+              <td><a href="#" class="btn-apply">Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside>
+      <div class="widget">
+        <div class="widget-title">Quick Updates</div>
+        <ul class="widget-list">
+          <li><a href="#">Latest Results 2026</a></li>
+          <li><a href="#">Download Admit Cards</a></li>
+          <li><a href="#">Official Answer Keys</a></li>
+          <li><a href="#">Exam Syllabus & Pattern</a></li>
+          <li><a href="#">Previous Question Papers</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <div class="widget-title">Jobs by Qualification</div>
+        <ul class="widget-list">
+          <li><a href="#">10th / 12th Pass Jobs</a></li>
+          <li><a href="#">ITI & Diploma Jobs</a></li>
+          <li><a href="#">Engineering (B.E/B.Tech) Jobs</a></li>
+          <li><a href="#">Graduate & Post Graduate Jobs</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 JobsInd Portal Template. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript Filter Logic -->
+  <script>
+    function filterJobs() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const selectedCategory = document.getElementById('categorySelect').value;
+      const tableRows = document.querySelectorAll('#jobsTable tbody tr');
+
+      tableRows.forEach(row => {
+        const textContent = row.textContent.toLowerCase();
+        const rowCategory = row.getAttribute('data-category');
+
+        const matchesSearch = textContent.includes(searchInput);
+        const matchesCategory = selectedCategory === "" || rowCategory === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+
