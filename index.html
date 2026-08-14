@@ -20,7 +20,7 @@
       --radius: 6px;
     }
 
-    /* Reset & Base Styles */
+    /* Reset & Prevent Page-Level Horizontal Overflow */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -28,7 +28,10 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden; /* KEY FIX: Stops horizontal page leakage */
       background-color: var(--bg-light);
       color: var(--text-main);
       line-height: 1.5;
@@ -36,6 +39,7 @@
 
     /* Top Header */
     header {
+      width: 100%;
       background: var(--primary);
       color: #ffffff;
       padding: 20px 15px;
@@ -57,6 +61,7 @@
 
     /* Navigation Bar */
     .nav-wrapper {
+      width: 100%;
       background: var(--secondary);
       position: sticky;
       top: 0;
@@ -79,6 +84,7 @@
       overflow-x: auto;
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
+      width: 100%;
     }
 
     .nav-links li a {
@@ -99,6 +105,7 @@
     /* Responsive Main Container */
     .container {
       max-width: 1200px;
+      width: 100%;
       margin: 20px auto;
       padding: 0 15px;
       display: grid;
@@ -134,12 +141,13 @@
       border-color: var(--secondary);
     }
 
-    /* Content Area & Table */
+    /* Content Area & Table Container */
     .card {
       background: var(--surface);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      width: 100%;
     }
 
     .card-header {
@@ -150,16 +158,20 @@
       font-weight: 600;
     }
 
+    /* KEY FIX: Strict Table Scroll Container */
     .table-responsive {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      min-width: 600px; /* Guarantees table structure on smaller screens */
+      min-width: 600px; /* Table stays structured and scrolls isolated inside .table-responsive */
     }
 
     th, td {
@@ -205,6 +217,7 @@
       font-size: 0.8rem;
       font-weight: 500;
       display: inline-block;
+      white-space: nowrap;
       transition: background 0.2s;
     }
 
@@ -257,6 +270,7 @@
 
     /* Footer */
     footer {
+      width: 100%;
       background: #1c1c1c;
       color: #a0a0a0;
       text-align: center;
@@ -270,6 +284,7 @@
       .container {
         grid-template-columns: 1fr;
         margin: 10px auto;
+        padding: 0 10px;
       }
 
       header h1 {
