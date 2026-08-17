@@ -1,7 +1,6 @@
 # JobsInd Alert Portal
 
 A responsive, lightweight web template designed for government job alert portals. This template provides a structured layout for displaying active recruitment notifications, banking jobs, railway vacancies, SSC updates, and competitive exam alerts with client-side real-time search and category filtering capabilities.
-
 ---
 
 ## Features
