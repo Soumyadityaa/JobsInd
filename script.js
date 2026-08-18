@@ -1,3 +1,10 @@
+// Hamburger Menu Toggle Logic
+function toggleMenu() {
+  const navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('active');
+}
+
+// Table Filtering Logic
 function applyFilter() {
   const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
   const selectedCategory = document.getElementById('categorySelect').value;
@@ -30,7 +37,7 @@ function applyFilter() {
   }
 }
 
-// Logic for the Contact Us Form
+// Contact Form Submit Logic
 function handleContactSubmit(event) {
   event.preventDefault();
   const feedback = document.getElementById('formFeedback');
@@ -43,7 +50,7 @@ function handleContactSubmit(event) {
   }
 }
 
-// Logic for the Daily Job Alerts Subscription Form
+// Email Subscription Form Submit Logic
 function handleSubscribeSubmit(event) {
   event.preventDefault();
   const feedback = document.getElementById('subscribeFeedback');
