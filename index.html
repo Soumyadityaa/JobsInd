@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobsInd - India's Trusted Job Portal | Latest Jobs & Notifications</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>JobsInd Alert Portal</h1>
+    <p>India's Trusted Job Portal for Private Jobs, Government Notifications, Work From Home & Internships</p>
+  </header>
+
+  <!-- Navigation Bar (Match Image Structure) -->
+  <div class="nav-wrapper">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        
+        <li class="dropdown">
+          <a href="#">Latest Jobs &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html#jobs-section">Today's Updates</a></li>
+            <li><a href="index.html#jobs-section">Upcoming Exams</a></li>
+          </ul>
+        </li>
+
+        <li><a href="index.html#jobs-section">Government Jobs</a></li>
+        <li><a href="index.html#jobs-section">Private Jobs</a></li>
+        <li><a href="index.html#jobs-section">Freshers Jobs</a></li>
+        <li><a href="index.html#jobs-section">Work From Home</a></li>
+        <li><a href="index.html#jobs-section">Walk-in Jobs</a></li>
+        
+        <li class="dropdown">
+          <a href="#">Jobs by Qualification &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">10th / 12th Pass</a></li>
+            <li><a href="#">ITI / Diploma</a></li>
+            <li><a href="#">Graduate / PG</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Jobs by Category &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Banking</a></li>
+            <li><a href="#">Railways</a></li>
+            <li><a href="#">SSC & Defence</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Jobs by Location &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Delhi</a></li>
+            <li><a href="#">Mumbai</a></li>
+            <li><a href="#">Bangalore</a></li>
+            <li><a href="#">West Bengal</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Career Advice &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Resume Write Tips</a></li>
+            <li><a href="#">Interview Questions</a></li>
+            <li><a href="#">Career Guidance</a></li>
+            <li><a href="#">Salary Guide</a></li>
+            <li><a href="#">Skill Development</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Grid Layout -->
+  <div class="container">
+    <main>
+      <!-- Search and Filter Tools -->
+      <div class="filter-card">
+        <input 
+          type="text" 
+          id="searchInput" 
+          aria-label="Search Job Listings"
+          placeholder="Search by Post, Organization, or Qualification..." 
+          oninput="applyFilter()"
+        />
+        <select id="categorySelect" aria-label="Filter by Category" onchange="applyFilter()">
+          <option value="">All Categories</option>
+          <option value="Banking">Banking</option>
+          <option value="Railways">Railways</option>
+          <option value="SSC">SSC</option>
+          <option value="Defence">Defence</option>
+          <option value="IT & Private">IT & Private</option>
+          <option value="Work From Home">Work From Home</option>
+          <option value="Internship">Internship</option>
+        </select>
+      </div>
+
+      <!-- Main Job Table -->
+      <div class="card" id="jobs-section">
+        <div class="card-header">Latest Active Job Notifications</div>
+        <div class="table-responsive">
+          <table id="recruitmentTable">
+            <thead>
+              <tr>
+                <th>Organization</th>
+                <th>Post Name</th>
+                <th>Qualification</th>
+                <th>Vacancies</th>
+                <th>Last Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-category="Banking">
+                <td data-label="Organization"><strong>SBI</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Probationary Officer (PO)</td>
+                <td data-label="Qualification">Degree</td>
+                <td data-label="Vacancies">2,000</td>
+                <td data-label="Last Date">28-Aug-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Railways">
+                <td data-label="Organization"><strong>RRB</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Assistant Loco Pilot</td>
+                <td data-label="Qualification">10th / ITI / Diploma</td>
+                <td data-label="Vacancies">5,696</td>
+                <td data-label="Last Date">05-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
+              </tr>
+              <tr data-category="IT & Private">
+                <td data-label="Organization"><strong>TCS</strong> <span class="badge badge-private">Private</span></td>
+                <td data-label="Post Name">Software Developer (Fresher)</td>
+                <td data-label="Qualification">B.E / B.Tech / MCA</td>
+                <td data-label="Vacancies">500+</td>
+                <td data-label="Last Date">10-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="SSC">
+                <td data-label="Organization"><strong>SSC</strong> <span class="badge badge-new">New</span></td>
+                <td data-label="Post Name">Combined Graduate Level (CGL)</td>
+                <td data-label="Qualification">Bachelor's Degree</td>
+                <td data-label="Vacancies">17,727</td>
+                <td data-label="Last Date">15-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Work From Home">
+                <td data-label="Organization"><strong>TechCorp</strong> <span class="badge badge-wfh">WFH</span></td>
+                <td data-label="Post Name">Customer Support Executive</td>
+                <td data-label="Qualification">12th Pass / Any Graduate</td>
+                <td data-label="Vacancies">150</td>
+                <td data-label="Last Date">18-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr data-category="Defence">
+                <td data-label="Organization"><strong>Indian Army</strong> <span class="badge badge-urgent">Urgent</span></td>
+                <td data-label="Post Name">Agniveer General Duty</td>
+                <td data-label="Qualification">10th Pass</td>
+                <td data-label="Vacancies">25,000+</td>
+                <td data-label="Last Date">20-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">View Details</a></td>
+              </tr>
+              <tr data-category="Internship">
+                <td data-label="Organization"><strong>InfoTech Labs</strong> <span class="badge badge-new">Internship</span></td>
+                <td data-label="Post Name">Web Development Intern</td>
+                <td data-label="Qualification">Pursuing Graduation</td>
+                <td data-label="Vacancies">25</td>
+                <td data-label="Last Date">25-Sep-2026</td>
+                <td data-label="Action"><a href="#" class="btn-action">Apply Online</a></td>
+              </tr>
+              <tr id="noResultsRow" style="display: none;">
+                <td colspan="6" style="text-align: center; padding: 20px; color: var(--text-muted);">
+                  No job notifications match your search criteria.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Job Alerts Subscription Section -->
+      <div class="card" id="subscribe-section">
+        <div class="card-header">Get Daily Job Alerts</div>
+        <div class="card-body">
+          <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-main);">
+            Subscribe with your email to receive daily updates on the latest government and private jobs directly in your inbox.
+          </p>
+          <form id="subscribeForm" onsubmit="handleSubscribeSubmit(event)" style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input 
+              type="email" 
+              id="subscribeEmail" 
+              placeholder="Enter your email address" 
+              required 
+              style="flex: 1; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.9rem; outline: none; min-width: 200px;" 
+            />
+            <button type="submit" class="btn-submit">Subscribe</button>
+          </form>
+          <div id="subscribeFeedback" class="form-feedback" style="display: none;">Successfully Subscribed! You will now receive daily job alerts.</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Section -->
+    <aside>
+      <div class="sidebar-widget">
+        <div class="widget-header">What We Offer</div>
+        <ul class="widget-list">
+          <li><a href="index.html#jobs-section">Latest Private Jobs</a></li>
+          <li><a href="index.html#jobs-section">Government Notifications</a></li>
+          <li><a href="index.html#jobs-section">Work From Home Jobs</a></li>
+          <li><a href="index.html#jobs-section">Fresher Jobs</a></li>
+          <li><a href="index.html#jobs-section">Experienced Jobs</a></li>
+          <li><a href="index.html#jobs-section">Internship Opportunities</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <div class="widget-header">Quick Updates</div>
+        <ul class="widget-list">
+          <li><a href="#">Latest Exam Results</a></li>
+          <li><a href="#">Download Admit Cards</a></li>
+          <li><a href="#">Official Answer Keys</a></li>
+          <li><a href="#">Syllabus & Exam Pattern</a></li>
+          <li><a href="#">Previous Year Papers</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <div class="widget-header">Jobs by Qualification</div>
+        <ul class="widget-list">
+          <li><a href="#">10th / 12th Pass Jobs</a></li>
+          <li><a href="#">ITI & Diploma Jobs</a></li>
+          <li><a href="#">Engineering (B.E/B.Tech)</a></li>
+          <li><a href="#">Graduate & Post Graduate</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>JobsInd Alert Portal</h4>
+        <p>JobsInd is a trusted job portal dedicated to helping candidates find government jobs, private roles, internships, and work-from-home careers across India.</p>
+        <p style="margin-top: 10px;"><strong>Contact:</strong> ershrikanta@gmail.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Support</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Job Categories</h4>
+        <ul>
+          <li><a href="index.html#jobs-section">Government Jobs</a></li>
+          <li><a href="index.html#jobs-section">Private Sector</a></li>
+          <li><a href="index.html#jobs-section">Work From Home</a></li>
+          <li><a href="index.html#jobs-section">Internships</a></li>
+          <li><a href="index.html#jobs-section">Banking & SSC</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 JobsInd Alert Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

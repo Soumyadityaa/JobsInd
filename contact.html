@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - JobsInd | India's Trusted Job Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>JobsInd Alert Portal</h1>
+    <p>India's Trusted Job Portal for Private Jobs, Government Notifications, Work From Home & Internships</p>
+  </header>
+
+  <!-- Navigation Bar (With Dropdowns) -->
+  <div class="nav-wrapper">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        
+        <li class="dropdown">
+          <a href="#">Latest Jobs &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html#jobs-section">Today's Updates</a></li>
+            <li><a href="index.html#jobs-section">Upcoming Exams</a></li>
+          </ul>
+        </li>
+
+        <li><a href="index.html#jobs-section">Government Jobs</a></li>
+        <li><a href="index.html#jobs-section">Private Jobs</a></li>
+        <li><a href="index.html#jobs-section">Freshers Jobs</a></li>
+        <li><a href="index.html#jobs-section">Work From Home</a></li>
+        <li><a href="index.html#jobs-section">Walk-in Jobs</a></li>
+        
+        <li class="dropdown">
+          <a href="#">Jobs by Qualification &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">10th / 12th Pass</a></li>
+            <li><a href="#">ITI / Diploma</a></li>
+            <li><a href="#">Graduate / PG</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Jobs by Category &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Banking</a></li>
+            <li><a href="#">Railways</a></li>
+            <li><a href="#">SSC & Defence</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Jobs by Location &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Delhi</a></li>
+            <li><a href="#">Mumbai</a></li>
+            <li><a href="#">Bangalore</a></li>
+            <li><a href="#">West Bengal</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Career Advice &#9662;</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Resume Write Tips</a></li>
+            <li><a href="#">Interview Questions</a></li>
+            <li><a href="#">Career Guidance</a></li>
+            <li><a href="#">Salary Guide</a></li>
+            <li><a href="#">Skill Development</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Grid Layout -->
+  <div class="container">
+    <!-- Primary Content Area -->
+    <main>
+      <!-- Contact Us Section -->
+      <div class="card about-section" id="contact-section">
+        <div class="card-header">Contact Us</div>
+        <div class="card-body">
+          
+          <!-- Newly Added Content Start -->
+          <p>
+            Welcome to the <strong>JobsInd Contact Us</strong> page. We value your feedback, questions, and suggestions. Whether you are a job seeker, employer, recruiter, or business partner, our team is here to help.
+          </p>
+          <p>
+            If you need assistance regarding job listings, employer services, website support, or general inquiries, please don’t hesitate to contact us.
+          </p>
+
+          <h3>Get in Touch</h3>
+          <p><strong>Email:</strong> <a href="mailto:ershrikanta@gmail.com" style="color: var(--secondary); text-decoration: none;">ershrikanta@gmail.com</a></p>
+          <p>We aim to respond to all emails within 24–48 business hours.</p>
+
+          <h3>How We Can Help</h3>
+          <p>You can contact us for:</p>
+          <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--text-muted); font-size: 0.92rem;">
+            <li>General inquiries about JobsInd</li>
+            <li>Job posting and recruitment support</li>
+            <li>Employer and recruiter partnerships</li>
+            <li>Advertising and business collaborations</li>
+            <li>Technical issues or website support</li>
+            <li>Reporting incorrect or fraudulent job listings</li>
+            <li>Feedback and suggestions to improve our platform</li>
+          </ul>
+
+          <h3>Business Inquiries</h3>
+          <p>For advertising opportunities, partnerships, sponsorships, or other business-related discussions, please email us at:</p>
+          <p><strong>Email:</strong> <a href="mailto:ershrikanta@gmail.com" style="color: var(--secondary); text-decoration: none;">ershrikanta@gmail.com</a></p>
+
+          <h3>Report a Job</h3>
+          <p>If you believe a job listing is inaccurate, misleading, or fraudulent, please send us the following details:</p>
+          <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--text-muted); font-size: 0.92rem;">
+            <li>Job title</li>
+            <li>Company name</li>
+            <li>Job posting link</li>
+            <li>Description of the issue</li>
+          </ul>
+          <p>Our team will review the report and take appropriate action as quickly as possible.</p>
+
+          <h3>Our Commitment</h3>
+          <p>
+            At JobsInd, we are committed to providing a safe, reliable, and user-friendly platform for job seekers and employers. Your feedback helps us improve our services and maintain the quality of our job listings.
+          </p>
+          <p>Thank you for choosing JobsInd. We appreciate your trust and look forward to assisting you.</p>
+          <!-- Newly Added Content End -->
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0;" />
+
+          <!-- Form Area -->
+          <h3 style="margin-bottom: 15px;">Send Us a Message</h3>
+          <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="name" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email ID</label>
+              <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required />
+            </div>
+            <div class="form-group">
+              <label for="contactQuery">Query</label>
+              <textarea id="contactQuery" name="query" rows="5" placeholder="Enter your question, feedback, or inquiry..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+            <div id="formFeedback" class="form-feedback" style="display: none;">Thank you. Your query has been submitted successfully.</div>
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Section -->
+    <aside>
+      <div class="sidebar-widget">
+        <div class="widget-header">What We Offer</div>
+        <ul class="widget-list">
+          <li><a href="index.html#jobs-section">Latest Private Jobs</a></li>
+          <li><a href="index.html#jobs-section">Government Notifications</a></li>
+          <li><a href="index.html#jobs-section">Work From Home Jobs</a></li>
+          <li><a href="index.html#jobs-section">Fresher Jobs</a></li>
+          <li><a href="index.html#jobs-section">Experienced Jobs</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <div class="widget-header">Jobs by Qualification</div>
+        <ul class="widget-list">
+          <li><a href="#">10th / 12th Pass Jobs</a></li>
+          <li><a href="#">ITI & Diploma Jobs</a></li>
+          <li><a href="#">Engineering (B.E/B.Tech)</a></li>
+          <li><a href="#">Graduate & Post Graduate</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>JobsInd Alert Portal</h4>
+        <p>JobsInd is a trusted job portal dedicated to helping candidates find government jobs, private roles, internships, and work-from-home careers across India.</p>
+        <p style="margin-top: 10px;"><strong>Contact:</strong> ershrikanta@gmail.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Support</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Job Categories</h4>
+        <ul>
+          <li><a href="index.html#jobs-section">Government Jobs</a></li>
+          <li><a href="index.html#jobs-section">Private Sector</a></li>
+          <li><a href="index.html#jobs-section">Work From Home</a></li>
+          <li><a href="index.html#jobs-section">Internships</a></li>
+          <li><a href="index.html#jobs-section">Banking & SSC</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 JobsInd Alert Portal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
