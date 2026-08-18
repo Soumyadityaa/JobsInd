@@ -14,10 +14,18 @@
     <p>India's Trusted Job Portal for Private Jobs, Government Notifications, Work From Home & Internships</p>
   </header>
 
-  <!-- Navigation Bar (Match Image Structure) -->
+ <!-- Navigation Bar (With Hamburger Menu) -->
   <div class="nav-wrapper">
     <nav>
-      <ul class="nav-links">
+      <!-- Hamburger Menu Icon -->
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         
         <li class="dropdown">
@@ -77,6 +85,7 @@
       </ul>
     </nav>
   </div>
+
 
   <!-- Main Grid Layout -->
   <div class="container">
