@@ -15,11 +15,19 @@
   </header>
 
   <!-- Navigation Bar -->
-  <!-- Navigation Bar (With Dropdowns) -->
+<!-- Navigation Bar (With Hamburger Menu) -->
   <div class="nav-wrapper">
     <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+      <!-- Hamburger Menu Icon -->
+      <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
         
         <li class="dropdown">
           <a href="#">Latest Jobs &#9662;</a>
@@ -73,12 +81,11 @@
             <li><a href="#">Skill Development</a></li>
           </ul>
         </li>
-
-        <li><a href="contact.html" class="active">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
   </div>
-
   <!-- Main Grid Layout -->
   <div class="container">
     <main>
