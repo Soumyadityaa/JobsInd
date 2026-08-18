@@ -1,40 +1,24 @@
 # JobsInd Alert Portal
 
-A responsive, lightweight web template designed for government job alert portals. This template provides a structured layout for displaying active recruitment notifications, banking jobs, railway vacancies, SSC updates, and competitive exam alerts with client-side real-time search and category filtering capabilities.
----
+JobsInd is a trusted job portal designed to connect job seekers with the latest private jobs, government notifications, work-from-home opportunities, and internships across India. This project is a fully responsive, lightweight frontend web application built entirely with vanilla web technologies.
 
 ## Features
 
-- **Real-Time Search:** Instantly filter job listings by job title, board name, or required qualification.
-- **Category Filter:** Dropdown filtering by sector (Banking, Railways, SSC, Defence, etc.).
-- **Responsive Grid Layout:** Two-column desktop layout that seamlessly transitions into a single-column layout on mobile devices.
-- **Structured Data Tables:** Styled job listings table with urgency badges, job details, deadline dates, and direct action buttons.
-- **Sidebar Widgets:** Secondary navigation for quick links, exam updates, and category breakdowns by qualification.
-- **Zero Dependencies:** Built using native web technologies with no external JS libraries or frameworks required.
+* **Dynamic Search & Filtering:** Real-time client-side filtering by job title, organization, qualification, and category without page reloads.
+* **Responsive Data Tables:** Custom CSS techniques automatically transform traditional HTML data tables into mobile-friendly card layouts on screens smaller than 650px.
+* **Dropdown Navigation:** Clean, multi-level navigation menu for easy access to job categories, locations, and career advice.
+* **Multi-Page Architecture:** Cleanly separated architecture including dedicated pages for Home, About Us, Contact Us, and Privacy Policy.
+* **UI/UX Enhancements:** Color-coded badge highlights for "Urgent", "New", "WFH", and "Private" job listings, alongside interactive sidebar widgets.
+* **Zero Dependencies:** Built entirely without external CSS frameworks (like Bootstrap) or JS libraries (like jQuery) for maximum performance and instant load times.
 
----
+## Project Structure
 
-## Tech Stack
-
-- **HTML5:** Semantic layout structure and table markup.
-- **CSS3:** Custom CSS variables, CSS Grid, Flexbox, and media queries for mobile responsiveness.
-- **JavaScript (ES6+):** DOM manipulation for search and category filtering logic.
-
----
-
-## Getting Started
-
-### Prerequisites
-
-No external build tools, package managers, or libraries are required. You only need a modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, or Apple Safari).
-
-### Running the Project
-
-1. Clone or download this repository.
-2. Open `index.html` directly in your web browser.
-
----
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
+```text
+jobsind/
+│
+├── index.html       # Homepage with primary job listings and subscription form
+├── about.html       # About Us page detailing the company mission and vision
+├── contact.html     # Contact Us page with support details and contact form
+├── privacy.html     # Privacy Policy documentation page
+├── style.css        # Global stylesheet including CSS variables and media queries
+└── script.js        # Vanilla JavaScript for search filtering and form handling
